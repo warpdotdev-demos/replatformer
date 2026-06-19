@@ -57,3 +57,5 @@ This project is licensed under the [MIT License](./LICENSE).
 The base `replatform-site` skill is implemented (`SKILL.md` + `references/`). The skill definition and reference docs will continue to evolve, in particular through the outer-loop improvement process described above. This repo is published as open source under the [`warpdotdev-demos`](https://github.com/warpdotdev-demos) GitHub organization.
 
 The original base-skill commit is recorded below so the improvement loops can diff against it as a baseline.
+
+- **Base skill commit:** `7ce25dc` — "Add base replatform-site skill"
