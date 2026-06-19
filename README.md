@@ -39,10 +39,14 @@ The skill walks through the steps above and leaves a deploy-ready project in the
 
 ```
 replatformer/
-├── README.md          # This file
-├── SKILL.md           # Skill definition (added in a later commit)
-└── src/               # Migration implementation (added in a later commit)
+├── README.md               # This file
+├── SKILL.md                # Skill definition (replatform-site)
+└── references/
+    ├── providers.md         # Per-provider content gathering & feature re-pointing
+    └── frameworks.md        # Destination framework scaffolding & deploy config
 ```
+
+The skill's main workflow lives in `SKILL.md`; provider- and framework-specific detail is split into `references/` so the core instructions stay concise.
 
 ## License
 
@@ -50,4 +54,6 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## Status
 
-Example / work-in-progress. The structure and README are initialized; the skill definition and migration logic will be added incrementally. This repo will be published as open source under the [`warpdotdev-demos`](https://github.com/warpdotdev-demos) GitHub organization.
+The base `replatform-site` skill is implemented (`SKILL.md` + `references/`). The skill definition and reference docs will continue to evolve, in particular through the outer-loop improvement process described above. This repo is published as open source under the [`warpdotdev-demos`](https://github.com/warpdotdev-demos) GitHub organization.
+
+The original base-skill commit is recorded below so the improvement loops can diff against it as a baseline.
