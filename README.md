@@ -60,4 +60,4 @@ The base `replatform-site` skill is implemented (`SKILL.md` + `references/`). Th
 
 The original base-skill commit is recorded below so the improvement loops can diff against it as a baseline.
 
-- **Base skill commit:** `7ce25dc` — "Add base replatform-site skill"
+- **Base skill commit:** `f04f3f2` — "Move skill into .agents/skills/replatform-site" (skill in canonical `.agents/skills/replatform-site/` location)
