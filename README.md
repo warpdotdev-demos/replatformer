@@ -39,14 +39,16 @@ The skill walks through the steps above and leaves a deploy-ready project in the
 
 ```
 replatformer/
-├── README.md               # This file
-├── SKILL.md                # Skill definition (replatform-site)
-└── references/
-    ├── providers.md         # Per-provider content gathering & feature re-pointing
-    └── frameworks.md        # Destination framework scaffolding & deploy config
+├── README.md                              # This file
+├── LICENSE                                # MIT
+└── .agents/skills/replatform-site/
+    ├── SKILL.md                           # Skill definition
+    └── references/
+        ├── providers.md                   # Per-provider content gathering & feature re-pointing
+        └── frameworks.md                  # Destination framework scaffolding & deploy config
 ```
 
-The skill's main workflow lives in `SKILL.md`; provider- and framework-specific detail is split into `references/` so the core instructions stay concise.
+The skill follows the standard `.agents/skills/<skill-name>/SKILL.md` layout. The main workflow lives in `SKILL.md`; provider- and framework-specific detail is split into `references/` so the core instructions stay concise.
 
 ## License
 
