@@ -1,0 +1,53 @@
+{
+  "skill_name": "oz-orchestrated-replatforming",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use Oz cloud agents to observe replatforming quality for https://talkingslop.ai, https://wordpress.org/news/, and a public Shopify storefront in parallel. Gather the results without modifying replatform-site.",
+      "expected_output": "One approved computer-use-enabled Oz batch, one propose-only observer result per site, and a validated aggregate cross-site report without shared-skill edits.",
+      "files": [],
+      "assertions": [
+        "Launches one remote computer-use-capable child per site in one shared batch.",
+        "Runs every child in observer propose-only mode.",
+        "Keeps inner observer metrics separate from Oz cloud-run metrics.",
+        "Does not let parallel children edit replatform-site."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run an Oz-orchestrated improve-and-verify pass over four Webflow sites. Use the observer results to make one generalized replatform-site improvement and validate it across all sites.",
+      "expected_output": "Parallel baseline observations, one centralized DIF applied by the parent, parallel candidate validation using the same agents, and a keep/revert decision.",
+      "files": [],
+      "assertions": [
+        "Selects a cross-site proposal supported by at least two sites or a blocker.",
+        "Applies exactly one centralized DIF rather than concurrent child edits.",
+        "Reuses the same child agents for candidate validation.",
+        "Keeps or reverts the diff using aggregate quality and cost gates."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Gather visual replatforming observations for twelve sites using Oz, but keep credit use controlled and report any incomplete cloud runs.",
+      "expected_output": "A bounded remote execution plan, explicit approval before launching credit-consuming batches, and a partial-safe aggregate report.",
+      "files": [],
+      "assertions": [
+        "Does not silently exceed the default maximum parallel batch size.",
+        "States the number of cloud runs and possible validation phase before launch.",
+        "Handles blocked, failed, and malformed results explicitly.",
+        "Reports telemetry coverage without estimating missing credits or tokens."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I've never used Oz before. Run an Oz-orchestrated observation of https://talkingslop.ai and make sure the cloud agent can build and preview the generated Vercel-ready site.",
+      "expected_output": "A discovered or automatically created reusable web-build environment, verified tooling, and an observation batch pinned to that environment.",
+      "files": [],
+      "assertions": [
+        "Discovers an existing suitable default environment before creating one.",
+        "Creates a personal, repo-less, glibc-compatible Node environment when none exists.",
+        "Uses a lightweight smoke run to verify Node, npm, Vercel CLI, and preview tooling before the browser batch.",
+        "Uses the resolved environment ID for the cloud-agent batch."
+      ]
+    }
+  ]
+}

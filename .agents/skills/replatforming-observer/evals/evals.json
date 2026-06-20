@@ -1,0 +1,41 @@
+{
+  "skill_name": "replatforming-observer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run the replatforming observer against https://talkingslop.ai. Compare the source and generated site at desktop and mobile sizes, then make one evidence-backed improvement to replatform-site and rerun the benchmark.",
+      "expected_output": "A baseline/candidate visual and efficiency benchmark, paired browser evidence, a generalized DIF to replatform-site, and a keep or revert decision.",
+      "files": [],
+      "assertions": [
+        "Captures paired original/generated screenshots at desktop and mobile viewports.",
+        "Records duration and records tokens/credits or an explicit unavailable reason.",
+        "Changes the inner replatform-site skill rather than only patching the generated site.",
+        "Reruns the same benchmark and applies explicit regression gates."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Observe replatform-site across a Webflow site and a WordPress site in parallel. Find recurring visual or behavioral migration failures, improve the inner skill, and report quality-versus-cost tradeoffs.",
+      "expected_output": "Isolated parallel site runs, a cross-site failure taxonomy, aggregate metrics with coverage, and a generalized verified inner-skill improvement.",
+      "files": [],
+      "assertions": [
+        "Uses isolated computer-use-capable runs for independent sites.",
+        "Distinguishes site-specific mismatches from recurring provider or general workflow failures.",
+        "Aggregates quality, latency, tokens, and credits without inventing unavailable telemetry.",
+        "Keeps only a candidate that passes controlled baseline-versus-candidate gates."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Benchmark the efficiency of replatform-site over repeated runs of the same public site. Look for duplicated work and token-heavy steps, make the smallest general improvement, and verify visual quality does not regress.",
+      "expected_output": "A controlled repeated-run efficiency benchmark and a minimal verified DIF that reduces waste without reducing visual parity.",
+      "files": [],
+      "assertions": [
+        "Keeps model, harness, site, routes, viewports, and cache policy comparable.",
+        "Identifies repeated work from evidence rather than only aggregate totals.",
+        "Reports metric coverage and variance across repeated runs.",
+        "Rejects efficiency improvements that cause visual or correctness regressions."
+      ]
+    }
+  ]
+}

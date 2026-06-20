@@ -41,11 +41,22 @@ The skill walks through the steps above and leaves a deploy-ready project in the
 replatformer/
 ├── README.md                              # This file
 ├── LICENSE                                # MIT
-└── .agents/skills/replatform-site/
-    ├── SKILL.md                           # Skill definition
-    └── references/
-        ├── providers.md                   # Per-provider content gathering & feature re-pointing
-        └── frameworks.md                  # Destination framework scaffolding & deploy config
+└── .agents/skills/
+    ├── replatform-site/
+    │   ├── SKILL.md                       # Inner replatforming skill
+    │   └── references/
+    │       ├── providers.md               # Provider gathering & feature re-pointing
+    │       └── frameworks.md              # Framework scaffolding & deploy config
+    ├── replatforming-observer/
+    │   ├── SKILL.md                       # Visual/efficiency outer improvement loop
+    │   ├── references/                    # Artifact schema and failure taxonomy
+    │   ├── scripts/                       # Deterministic metrics aggregation
+    │   └── evals/                         # Representative observer evaluations
+    └── oz-orchestrated-replatforming/
+        ├── SKILL.md                       # Parallel Oz cloud execution driver
+        ├── references/                    # Cloud result and handoff schema
+        ├── scripts/                       # Deterministic result validation
+        └── evals/                         # Representative orchestration evaluations
 ```
 
 The skill follows the standard `.agents/skills/<skill-name>/SKILL.md` layout. The main workflow lives in `SKILL.md`; provider- and framework-specific detail is split into `references/` so the core instructions stay concise.
@@ -56,7 +67,7 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## Status
 
-The base `replatform-site` skill is implemented (`SKILL.md` + `references/`). The skill definition and reference docs will continue to evolve, in particular through the outer-loop improvement process described above. This repo is published as open source under the [`warpdotdev-demos`](https://github.com/warpdotdev-demos) GitHub organization.
+The base `replatform-site` skill, the `replatforming-observer` outer-loop skill, and the `oz-orchestrated-replatforming` cloud execution driver are implemented. The observer runs controlled baseline/candidate migrations, compares the source and generated sites with computer vision, measures quality and efficiency, and feeds evidence-backed differential improvements into the base skill. The Oz driver shards observations across parallel cloud agents and gathers cross-site results safely. This repo is published as open source under the [`warpdotdev-demos`](https://github.com/warpdotdev-demos) GitHub organization.
 
 The original base-skill commit is recorded below so the improvement loops can diff against it as a baseline.
 
