@@ -9,7 +9,8 @@ Use one `run.json` per site execution. Keep baseline and candidate runs separate
 ├── benchmark-config.json
 ├── skill-baseline/
 ├── dif/
-│   └── iteration-<n>.json
+│   ├── iteration-<n>.json
+│   └── iteration-<n>.patch
 ├── baseline/<site-slug>/run.json
 ├── candidate-<n>/<site-slug>/run.json
 ├── screenshots/<site-slug>/<phase>/<route>/<viewport>/
@@ -84,5 +85,7 @@ Each `dif/iteration-<n>.json` records:
 - `regression_risks`
 - `keep_gates`
 - `diff_path`
-- `decision`: `kept`, `reverted`, or `pending`
+- `decision`: `proposed`, `kept`, `reverted`, `pending`, or `no-change`
 - `decision_evidence`
+
+Every completed baseline or candidate run requires one DIF outcome record. When `decision` is `proposed`, `kept`, `reverted`, or `pending`, `diff_path` must reference a concrete unified diff against the frozen inner-skill snapshot. When `decision` is `no-change`, `diff_path` must be `null` and `decision_evidence` must explain why the evidence did not warrant a general inner-skill change.

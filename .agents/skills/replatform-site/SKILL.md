@@ -38,6 +38,7 @@ Prefer the provider's own data over scraping, since provider data is structured 
 2. **Live scrape fallback**: if no MCP/API is available or credentials aren't configured, scrape the live site. Fetch every internal page, download referenced assets (images, fonts, CSS, JS), and capture metadata. Treat the rendered DOM as the source of truth.
 
 Capture a manifest of: pages (URL → title → route path), assets (URL → local path), nav structure, and any forms/search/dynamic features that need re-pointing.
+Also capture provider-runtime presentation behavior that affects visible parity: generated selector or node-ID layout rules, responsive navigation, dropdowns, scroll effects, entry animations, and other interactions that disappear when provider JavaScript is removed.
 
 ### 3. Inventory and map the site
 
@@ -48,6 +49,7 @@ Build a content inventory:
 - Navigation (header, footer, menus).
 - SEO metadata (titles, descriptions, Open Graph, sitemap, robots).
 - Dynamic features to re-point (forms, search, ecommerce cart, comments).
+- Provider-runtime behavior to reproduce (responsive menus, dropdowns, generated grid placement, animations, and scroll effects).
 
 ### 4. Scaffold the destination project
 
@@ -64,6 +66,7 @@ Preserve the source site's visual identity (colors, type, layout) where discerni
 - Localize all assets into the repo (copy downloaded files under `public/` or the framework's asset dir). Never leave `<img src="https://...hosted...">` pointing back at the provider's CDN.
 - Rebuild navigation from the inventory.
 - Preserve SEO metadata, sitemap, and robots.
+- Translate provider-generated layout rules that materially affect parity into explicit component styles. Do not assume semantic class names contain all grid placement, breakpoint, or visibility behavior.
 
 ### 6. Re-point dynamic features
 
@@ -72,6 +75,7 @@ Replace provider-hosted dynamic features with static-friendly equivalents using 
 - **Forms** → host-native forms (Vercel/Netlify) or Formspree.
 - **Search** → Pagefind (client-side) unless the site is large enough to warrant an external search API.
 - **Ecommerce** → keep product/collection pages static from exported data; route cart/checkout to the provider's Storefront/buy-button or a headless commerce provider. Do not attempt to rebuild a full cart in the static site.
+- **Visible provider-runtime interactions** → reproduce them with accessible framework-native components. Do not copy provider JavaScript bundles into the generated site.
 
 ### 7. Generate deploy config
 
@@ -87,6 +91,7 @@ Run the framework's build and serve the output, then sanity-check:
 - Home page and 2-3 key pages render with content and assets.
 - No remaining hard references to the source provider's CDN.
 - Navigation and redirects work.
+- Responsive navigation, dropdowns, and primary visible animations/interactions match the source closely enough to preserve behavior.
 
 Do not deploy for the user. Report the local preview URL and the exact deploy command(s) for their chosen host.
 

@@ -30,6 +30,7 @@ Do not deploy generated sites. Do not test authenticated or private sites withou
 - Preserve evidence. A conclusion without screenshots, metrics, or exact reproduction details is only a hypothesis.
 - Improve the inner skill, not the generated example sites. Use example-site edits only to prove a diagnosis, then translate the lesson into a general inner-skill change.
 - Keep the inner skill lean. A quality improvement that substantially increases latency or token/credit cost needs clear justification.
+- Every completed observation produces a DIF outcome artifact. A generalizable finding produces a concrete diff; a no-change outcome records why no diff is warranted.
 
 Read [references/artifact-schema.md](references/artifact-schema.md) before creating run artifacts. Read [references/failure-taxonomy.md](references/failure-taxonomy.md) before categorizing mismatches.
 
@@ -122,7 +123,14 @@ Before editing, write a DIF record containing:
 - Regression risks and explicit keep/revert gates.
 
 Inspect the actual diff after editing. Prefer one hypothesis per DIF iteration so cause and effect remain attributable.
-In `propose-only` mode, write the evidence-backed DIF proposal and stop without editing the inner skill. This mode is required when multiple observer agents run in parallel so they cannot race on shared skill files.
+Every completed baseline or candidate run must write one DIF outcome record under `dif/`, even when no improvement is warranted:
+
+- When evidence supports a generalizable improvement, create the smallest concrete unified diff against the frozen inner-skill snapshot and record its path.
+- In `apply` mode, apply that diff to the working inner skill, inspect it, and continue to candidate validation.
+- In `propose-only` mode, preserve the concrete diff in the isolated run workspace without applying it to the shared inner skill. This mode is required when multiple observer agents run in parallel so they cannot race on shared skill files.
+- When residual issues are example-specific, already covered, or unsupported by sufficient evidence, write a `no-change` DIF outcome with the evidence and reason instead of inventing a patch.
+
+Do not finish a completed run with only prose describing a possible improvement. The DIF outcome record and either its concrete patch or explicit no-change reason are required handoff artifacts.
 
 ### 7. Rerun and gate the candidate
 
@@ -165,6 +173,7 @@ Provide:
 - Baseline versus candidate quality, latency, tokens, credits, and metric coverage.
 - Per-site and per-category mismatch summary with evidence paths.
 - The DIF hypothesis and exact inner-skill files changed.
+- Paths to every DIF outcome record and proposed/applied patch, or the explicit no-change reason.
 - Kept/reverted decision and regression-gate results.
 - Convergence status: which stop signal fired, the DIF history it relied on, and whether the skill appears to be in an optimal/plateaued state.
 - Remaining mismatches and the highest-value next experiment.

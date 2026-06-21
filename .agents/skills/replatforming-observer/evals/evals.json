@@ -10,6 +10,7 @@
         "Captures paired original/generated screenshots at desktop and mobile viewports.",
         "Records duration and records tokens/credits or an explicit unavailable reason.",
         "Changes the inner replatform-site skill rather than only patching the generated site.",
+        "Writes a DIF outcome record and concrete diff before candidate validation.",
         "Reruns the same benchmark and applies explicit regression gates."
       ]
     },
@@ -22,6 +23,7 @@
         "Uses isolated computer-use-capable runs for independent sites.",
         "Distinguishes site-specific mismatches from recurring provider or general workflow failures.",
         "Aggregates quality, latency, tokens, and credits without inventing unavailable telemetry.",
+        "Every completed site run emits a concrete proposed diff or an explicit no-change DIF outcome.",
         "Keeps only a candidate that passes controlled baseline-versus-candidate gates."
       ]
     },

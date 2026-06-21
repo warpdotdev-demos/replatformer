@@ -24,6 +24,12 @@ If credentials are required and not present, fall back to scraping and note the 
 - If a token is available, pull collections (CMS items) and pages via the API — highest-fidelity path for Webflow CMS sites.
 - Else scrape: Webflow outputs static HTML already, so scraping yields clean markup. Download assets from `assets.website-files.com`.
 - Dynamic features: CMS → render collection items as static pages. Forms → Webflow forms post to Webflow; replace with host-native forms or Formspree.
+- Before conversion, inventory Webflow-specific presentation dependencies:
+  - Extract material `w-node-*` grid placement, breakpoint, ordering, and visibility rules from Webflow stylesheets. Translate them into explicit generated component styles instead of preserving opaque node IDs.
+  - Identify `w-nav` and `w-dropdown` components and record their desktop, mobile, hover, focus, and click behavior. Rebuild them as accessible framework-native components with equivalent responsive breakpoints.
+  - Identify `data-w-id`, IX2, and parallax/scroll-effect behavior. Preserve primary visible motion with a small framework-native implementation; omit only decorative motion that does not materially affect parity.
+- Do not rely on generic Webflow class names alone. They often omit node-ID layout overrides and runtime JavaScript behavior, producing broken grids, uncollapsed mobile navigation, or inert interactions.
+- Do not ship Webflow runtime bundles as the migration solution. Reproduce the observed behavior in source-controlled components and verify it at every requested viewport.
 
 ## Wix
 
